@@ -4,10 +4,7 @@
 
 // initialize the tape with 30,000 zeroes
 unsigned char tape[30000] = {0};
-
-// set the pointer to point at the left-most cell of the tape
 unsigned char* ptr = tape;
-
 
 void interpret(char input[10][10])
 {
@@ -72,11 +69,10 @@ void interpret(char input[10][10])
 void string2words(char words_array[400][10], char* input)
 {
     char * pch;
-    int i = 0;
+    size_t i = 0;
     pch = strtok (input," ,.-");
     while (pch != NULL)
     {
-       // printf ("%s\n",pch);
         strcpy(words_array[i], pch);
         pch = strtok (NULL, " ,.-");
         i++;
@@ -90,6 +86,5 @@ int main()
     char words[400][10] = {{0}};
     string2words(words, str);
     interpret(words);
-    //interpret(",[.[-],]");  // cat input
     return 0;
 }
