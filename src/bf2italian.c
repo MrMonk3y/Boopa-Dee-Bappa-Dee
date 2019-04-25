@@ -18,28 +18,28 @@ char* translate(char* text, char* out)
         switch(text[i])
         {
             case '.':
-                strcat(out, "bu ");
+                strcat(out, "boo ");
                 break;
             case '<':
-                strcat(out, "ba ");
+                strcat(out, "bappa ");
                 break;
             case '>':
-                strcat(out, "bupi ");
+                strcat(out, "boopa ");
                 break;
             case '-':
-                strcat(out, "di ");
+                strcat(out, "dee ");
                 break;
             case '+':
                 strcat(out, "pe ");
                 break;
             case '[':
-                strcat(out, "bupedi ");
+                strcat(out, "boopadee ");
                 break;
             case ']':
-                strcat(out, "bapudei ");
+                strcat(out, "bappadee ");
                 break;
             case ',':
-                strcat(out, "bapedi ");
+                strcat(out, "boopabappa");
                 break;
             default:
                 break;
@@ -52,7 +52,7 @@ char* translate(char* text, char* out)
 int main()
 {
     char bf[] = "++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..+++.>>.<-.<.+++.------.--------.>>+.>++.";
-    char out[400];
+    char out[500];
     translate(bf, out);
     printf("%s\n", out);
     return 0;
