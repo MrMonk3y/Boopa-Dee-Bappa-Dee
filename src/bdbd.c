@@ -22,11 +22,11 @@ void interpret(char input[10][10])
         {
             break;
         }
-        else if (!strcmp(current_char, "bupi")) // >
+        else if (!strcmp(current_char, "boopa")) // >
         {
             ++ptr;
         }
-        else if (!strcmp(current_char, "ba")) // <
+        else if (!strcmp(current_char, "bappa")) // <
         {
             --ptr;
         }
@@ -34,33 +34,33 @@ void interpret(char input[10][10])
         {
             ++*ptr;
         }
-        else if (!strcmp(current_char, "di")) // -
+        else if (!strcmp(current_char, "dee")) // -
         {
             --*ptr;
         }
-        else if (!strcmp(current_char, "bu")) // .
+        else if (!strcmp(current_char, "boo")) // .
         {
             putchar(*ptr);
         }
-        else if (!strcmp(current_char, "bapedi")) // ,
+        else if (!strcmp(current_char, "boopabappa")) // ,
         {
             *ptr = getchar();
         }
-        else if (!strcmp(current_char, "bupedi")) // [
+        else if (!strcmp(current_char, "boopadee")) // [
         {
             continue;
         }
-        else if (!strcmp(current_char, "bapudei") && *ptr) // ]
+        else if (!strcmp(current_char, "bappadee") && *ptr) // ]
         {
             loop = 1;
             while (loop > 0)
             {
                 strcpy(current_char, input[--i]);
-                if (!strcmp(current_char, "bupedi")) // [
+                if (!strcmp(current_char, "boopadee")) // [
                 {
                     loop--;
                 }
-                else if (!strcmp(current_char, "bapudei")) // ]
+                else if (!strcmp(current_char, "bappadee")) // ]
                 {
                     loop++;
                 }
@@ -85,12 +85,11 @@ void string2words(char words_array[400][10], char* input)
 
 int main()
 {
-    //char str[] ="bapedi bupedi bu bupedi di bapudei bapedi bapudei";
-    char str[] ="pe pe pe pe pe pe pe pe bupedi bupi pe pe pe pe bupedi bupi pe pe bupi pe pe pe bupi pe pe pe bupi pe ba ba ba ba di bapudei bupi pe bupi pe bupi di bupi bupi pe bupedi ba bapudei ba di bapudei bupi bupi bu bupi di di di bu pe pe pe pe pe pe pe bu bu pe pe pe bu bupi bupi bu ba di bu ba bu pe pe pe bu di di di di di di bu di di di di di di di di bu bupi bupi pe bu bupi pe pe bu";
+    //char str[] ="boopabappa boopadee boo boopadee dee bappadee boopabappa bappadee";
+    char str[] ="pe pe pe pe pe pe pe pe boopadee boopa pe pe pe pe boopadee boopa pe pe boopa pe pe pe boopa pe pe pe boopa pe bappa bappa bappa bappa dee bappadee boopa pe boopa pe boopa dee boopa boopa pe boopadee bappa bappadee bappa dee bappadee boopa boopa boo boopa dee dee dee boo pe pe pe pe pe pe pe boo boo pe pe pe boo boopa boopa boo bappa dee boo bappa boo pe pe pe boo dee dee dee dee dee dee boo dee dee dee dee dee dee dee dee boo boopa boopa pe boo boopa pe pe boo ";
     char words[400][10] = {{0}};
     string2words(words, str);
     interpret(words);
-    //interpret(",[.[-],]");  // outputs input
-    printf("done");
+    //interpret(",[.[-],]");  // cat input
     return 0;
 }
