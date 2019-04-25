@@ -79,12 +79,39 @@ void string2words(char words_array[400][10], char* input)
     }
 }
 
-int main()
+int main(int argc, char* argv[])
 {
-    //char str[] ="boopabappa boopadee boo boopadee dee bappadee boopabappa bappadee";
-    char str[] ="pe pe pe pe pe pe pe pe boopadee boopa pe pe pe pe boopadee boopa pe pe boopa pe pe pe boopa pe pe pe boopa pe bappa bappa bappa bappa dee bappadee boopa pe boopa pe boopa dee boopa boopa pe boopadee bappa bappadee bappa dee bappadee boopa boopa boo boopa dee dee dee boo pe pe pe pe pe pe pe boo boo pe pe pe boo boopa boopa boo bappa dee boo bappa boo pe pe pe boo dee dee dee dee dee dee boo dee dee dee dee dee dee dee dee boo boopa boopa pe boo boopa pe pe boo ";
-    char words[400][10] = {{0}};
-    string2words(words, str);
-    interpret(words);
+    if(1 == argc)
+    {
+        char str[] ="pe pe pe pe pe pe pe pe boopadee boopa pe pe pe pe boopadee boopa pe pe boopa pe pe pe boopa pe pe pe boopa pe bappa bappa bappa bappa dee bappadee boopa pe boopa pe boopa dee boopa boopa pe boopadee bappa bappadee bappa dee bappadee boopa boopa boo boopa dee dee dee boo pe pe pe pe pe pe pe boo boo pe pe pe boo boopa boopa boo bappa dee boo bappa boo pe pe pe boo dee dee dee dee dee dee boo dee dee dee dee dee dee dee dee boo boopa boopa pe boo boopa pe pe boo ";
+        char words[400][10] = {{0}};
+        string2words(words, str);
+        interpret(words);
+    }
+    else
+    {
+        char * buffer = 0;
+        long length;
+        FILE * f = fopen (argv[1], "rb");
+        
+        if (f)
+        {
+            fseek (f, 0, SEEK_END);
+            length = ftell (f);
+            fseek (f, 0, SEEK_SET);
+            buffer = malloc (length);
+            if (buffer)
+            {
+                fread (buffer, 1, length, f);
+            }
+            fclose (f);
+        }
+        
+        if (buffer)
+        {
+          //TODO
+        }
+    }
+    
     return 0;
 }
