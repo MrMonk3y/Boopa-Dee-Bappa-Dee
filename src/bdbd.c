@@ -92,14 +92,14 @@ int main(int argc, char* argv[])
     {
         char * buffer = 0;
         long length;
-        FILE * f = fopen (argv[1], "rb");
+        FILE * f = fopen (argv[1], "r");
         
         if (f)
         {
             fseek (f, 0, SEEK_END);
             length = ftell (f);
             fseek (f, 0, SEEK_SET);
-            buffer = malloc (length);
+            buffer = calloc (length, sizeof(char));
             if (buffer)
             {
                 fread (buffer, 1, length, f);
@@ -109,7 +109,9 @@ int main(int argc, char* argv[])
         
         if (buffer)
         {
-          //TODO
+            char words[400][10] = {{0}};
+            string2words(words, buffer);
+            interpret(words);
         }
     }
     
