@@ -4,13 +4,13 @@ A Boopa-Dee Bappa-Dee Interpreter similar to [Urban Müller's brainfuck Interpre
 [![peter speaks italian video](https://img.youtube.com/vi/aS38wY1Fm34/0.jpg)](https://www.youtube.com/watch?v=aS38wY1Fm34)
 
 ## Commands
-Word | Brainfuck Character | Meaning
+Command | Brainfuck | Meaning
 --- | --- | ---
-boopa | \> | increment the data pointer (to point to the next cell to the right)
-bappa | \< | decrement the data pointer (to point to the next cell to the left)
-pe | \+ | increment (increase by one) the byte at the data pointer
-dee | \- | decrement (decrease by one) the byte at the data pointer
-boo | \. | output the byte at the data pointer
-boopabappa | \, | accept one byte of input, storing its value in the byte at the data pointer
-boopadee | \[ | if the byte at the data pointer is zero, then instead of moving the instruction pointer forward to the next command, jump it forward to the command after the matching ] command
-bappadee | \] | if the byte at the data pointer is nonzero, then instead of moving the instruction pointer forward to the next command, jump it back to the command after the matching [ command
+bappadee | \> | increment the data pointer
+boo | \< | decrement the data pointer
+boopa | \+ | increment the byte at the data pointer
+bappa | \- | decrement the byte at the data pointer
+dee | \. | output the byte at the data pointer
+beepee | \, | accept one byte of input, storing its value in the byte at the data pointer
+boopadee | \[ | if pointer is zero, jump to matching ]
+baa | \] | if pointer is nonzero, jump to matching [
